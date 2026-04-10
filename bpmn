@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="BPMN Process">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Start -->
+        <mxCell id="start" value="Start" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Assign -->
+        <mxCell id="assign" value="Определить ответственного" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="140" y="200" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Gateway -->
+        <mxCell id="gateway1" value="Ответственный найден?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="350" y="190" width="80" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Yes path -->
+        <mxCell id="assignMain" value="Назначить менеджера" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="480" y="120" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- No path -->
+        <mxCell id="assignReserve" value="Назначить резервного" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="480" y="280" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Merge -->
+        <mxCell id="merge" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="20" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Update -->
+        <mxCell id="update" value="Обновить поля" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="750" y="200" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Notify -->
+        <mxCell id="notify" value="Уведомить менеджера" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="960" y="200" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Task -->
+        <mxCell id="task" value="Обработать заявку" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="200" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Gateway 2 -->
+        <mxCell id="gateway2" value="Готово?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="190" width="80" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Rework -->
+        <mxCell id="rework" value="Доработать" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="280" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Done -->
+        <mxCell id="done" value="Завершить" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="120" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- End -->
+        <mxCell id="end" value="End" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="200" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell edge="1" source="start" target="assign" parent="1"/>
+        <mxCell edge="1" source="assign" target="gateway1" parent="1"/>
+        <mxCell edge="1" source="gateway1" target="assignMain" parent="1"/>
+        <mxCell edge="1" source="gateway1" target="assignReserve" parent="1"/>
+        <mxCell edge="1" source="assignMain" target="merge" parent="1"/>
+        <mxCell edge="1" source="assignReserve" target="merge" parent="1"/>
+        <mxCell edge="1" source="merge" target="update" parent="1"/>
+        <mxCell edge="1" source="update" target="notify" parent="1"/>
+        <mxCell edge="1" source="notify" target="task" parent="1"/>
+        <mxCell edge="1" source="task" target="gateway2" parent="1"/>
+        <mxCell edge="1" source="gateway2" target="done" parent="1"/>
+        <mxCell edge="1" source="gateway2" target="rework" parent="1"/>
+        <mxCell edge="1" source="done" target="end" parent="1"/>
+        <mxCell edge="1" source="rework" target="task" parent="1"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
